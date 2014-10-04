@@ -1,4 +1,4 @@
-(load "../lib/unit.scm")
+(load "../../lib/unit.scm")
 
 (define (add a b)
   (+ a b))
