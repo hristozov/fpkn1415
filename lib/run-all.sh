@@ -2,6 +2,8 @@
 
 set -e
 
+start=`date +%s`
+
 RED=`echo '\033[41m\033[37m'`
 GREEN=`echo '\033[42m\033[37m'`
 WHITE=`echo '\033[47m\033[37m'`
@@ -35,4 +37,7 @@ for file in *.scm; do
 	echo
 done
 
-echo "$num_files files with $num_total tests: $num_passed passed and $num_failed failed"
+end=`date +%s`
+runtime=$((end-start))
+
+echo "$num_files files with $num_total tests: $num_passed passed and $num_failed failed; took $runtime seconds"
