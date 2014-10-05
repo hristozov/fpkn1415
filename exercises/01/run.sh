@@ -1,2 +1,2 @@
 #!/bin/sh
-../../lib/run-all.sh
+/bin/sh ../../lib/run-all.sh
