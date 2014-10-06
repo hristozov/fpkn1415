@@ -28,7 +28,8 @@ for file in *.scm; do
 	num_total=$((num_total + num_total_local))
 	num_files=$((num_files + 1))
 
-	cat $output | sed "s/FAILED/${RED}FAILED${NORMAL}/g" | \
+	cat $output | \
+		sed "s/FAILED/${RED}FAILED${NORMAL}/g" | \
 		sed "s/PASSED/${GREEN}PASSED${NORMAL}/g"
 
 	rm $output
@@ -40,4 +41,10 @@ done
 end=`date +%s`
 runtime=$((end-start))
 
-echo "$num_files files with $num_total tests: $num_passed passed and $num_failed failed; took $runtime seconds"
+if [ $num_failed -gt 0 ]
+then
+	echo "${RED}"
+else
+	echo "${GREEN}"
+fi
+echo "$num_files files: $num_passed/$num_total passed; took $runtime seconds${NORMAL}"
