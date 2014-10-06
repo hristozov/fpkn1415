@@ -1,4 +1,4 @@
-(load "../../lib/unit.scm")
+(load "../../lib/scm/unit.scm")
 
 (define (fact n)
   (if (<= n 1)

@@ -1,4 +1,4 @@
-(load "../../lib/unit.scm")
+(load "../../lib/scm/unit.scm")
 
 (define (signum n)
   (cond
