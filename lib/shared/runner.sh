@@ -1,14 +1,15 @@
 #!/bin/bash
 
-RED=`echo '\033[41m\033[37m'`
-GREEN=`echo '\033[42m\033[37m'`
-WHITE=`echo '\033[47m\033[37m'`
-NORMAL=`echo '\033[0m'`
+BLACK_FOREGROUND=`tput setaf 0`
+RED_BACKGROUND=`tput setab 1`
+GREEN_BACKGROUND=`tput setab 2`
+WHITE_BACKGROUND=`tput setab 7`
+NORMAL_COLORS=`tput sgr 0`
 
 function printFileHeader ()
 {
 	file=$1
-	echo "${WHITE}${file}${NORMAL}"
+	echo "${WHITE_BACKGROUND}${BLACK_FOREGROUND}${file}${NORMAL_COLORS}"
 }
 
 function printFile () {
@@ -24,8 +25,8 @@ function printFile () {
 	num_files=$((num_files + 1))
 
 	cat $output | \
-		sed "s/FAILED/${RED}FAILED${NORMAL}/g" | \
-		sed "s/PASSED/${GREEN}PASSED${NORMAL}/g"
+		sed "s/FAILED/${RED_BACKGROUND}${BLACK_FOREGROUND}FAILED${NORMAL_COLORS}/g" | \
+		sed "s/PASSED/${GREEN_BACKGROUND}${BLACK_FOREGROUND}PASSED${NORMAL_COLORS}/g"
 }
 
 function printSummary() {
@@ -37,11 +38,12 @@ function printSummary() {
 
 	if [ $num_failed -gt 0 ]
 		then
-		echo "${RED}"
+		echo "${RED_BACKGROUND}"
 	else
-		echo "${GREEN}"
+		echo "${GREEN_BACKGROUND}"
 	fi
-	echo "$num_files files: $num_passed/$num_total passed; took $runtime seconds${NORMAL}"
+	echo "${BLACK_FOREGROUND}$num_files files: $num_passed/$num_total passed; \
+took $runtime seconds${NORMAL_COLORS}"
 }
 
 export -f printFileHeader
