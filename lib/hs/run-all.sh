@@ -6,14 +6,16 @@ set -e
 
 start=`date +%s`
 
-for file in *.scm; do
+for file in *.hs; do
 	printFileHeader $file
 	
 	output=`mktemp -t scmtest`
 
 	# XXX: this relative path is a real disaster
 	currentDir=$(dirname $0)
-	ghc -i$currentDir/../lib/hs $file -o a.out
+	searchPath="$currentDir"
+	echo $searchPath
+	ghc -i$currentDir $file -o a.out
 	./a.out > $output
 	printFile $file $output
 
