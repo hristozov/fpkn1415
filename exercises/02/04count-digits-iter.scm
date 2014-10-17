@@ -1,10 +1,11 @@
 (load "../../lib/scm/unit.scm")
 
 (define (count-digits-iter n)
-  (define (helper n sum)
-    (if (<= n 0)
-        sum
-        (helper (quotient n 10) (+ sum 1))))
+  (define (helper i result)
+    (if (<= i 0)
+        result
+        (helper (quotient i 10) 
+                (+ result 1))))
   (helper n 0))
 
 (assert= 0 (count-digits-iter 0))
