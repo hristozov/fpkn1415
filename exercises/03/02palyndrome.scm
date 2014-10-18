@@ -1,0 +1,20 @@
+(load "../../lib/scm/unit.scm")
+
+(define (palyndrome? n)
+  (define (helper i reverse-i)
+    (cond
+      ((< i reverse-i) #f)
+      ((or (= i reverse-i) (= (quotient i 10) reverse-i)) #t)
+      (else (helper (quotient i 10)
+                    (+ (* reverse-i 10) (remainder i 10))))))
+  (helper n 0))
+
+(assert-true (palyndrome? 1))
+(assert-true (palyndrome? 121))
+(assert-false (palyndrome? 122))
+(assert-false (palyndrome? 221))
+(assert-true (palyndrome? 1221))
+(assert-true (palyndrome? 1234321))
+(assert-true (palyndrome? 12344321))
+(assert-false (palyndrome? 123421))
+(assert-false (palyndrome? 124321))
