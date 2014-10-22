@@ -46,6 +46,11 @@
                  ((assert= expected actual)
                   (_assert '= expected actual (quote actual)))))
 
+(define-syntax assert-approx
+               (syntax-rules ()
+                 ((assert-approx expected delta actual)
+                  (assert-true (> delta (abs (- expected actual)))))))
+
 (define-syntax assert-eq
                (syntax-rules ()
                  ((assert= expected actual)
