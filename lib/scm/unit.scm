@@ -1,3 +1,15 @@
+(define (_get-approx-comparator delta)
+  (lambda (e a) 
+    (> delta (abs (- e a)))))
+
+(define (_is-approx-comparator f)
+  ; Obviously wrong, but I can't figure out how to "compare" lambdas in R5RS
+  ; without the need to write them to a temporary I/O port, to get their
+  ; "signatures". And we aren't talking about portability yet!
+  ; This may be probably solved by "importing" the eqv? from Racket, but it may
+  ; break the whole environment.
+  (procedure? f))
+
 (define (_bool-stringify val)
   (if val "#t" "#f"))
 
@@ -16,10 +28,12 @@
     ((number? val) (number->string val))
     ((symbol? val) (symbol->string val))
     ((eq? '() val) "")
+    ((_is-approx-comparator val) "<approx>")
     ((list? val) (string-append
                    "("
                    (_list-stringify val) 
-                   ")"))))
+                   ")"))
+    (else "<unknown>")))
 
 (define (_assert-with-message message boolean)
   (if boolean
@@ -44,17 +58,26 @@
 (define-syntax assert=
                (syntax-rules ()
                  ((assert= expected actual)
-                  (_assert '= expected actual (quote actual)))))
+                  (_assert '=
+                           expected
+                           actual
+                           (quote actual)))))
 
 (define-syntax assert-approx
                (syntax-rules ()
                  ((assert-approx expected delta actual)
-                  (assert-true (> delta (abs (- expected actual)))))))
+                  (_assert (_get-approx-comparator delta)
+                           expected
+                           actual
+                           (quote actual)))))
 
 (define-syntax assert-eq
                (syntax-rules ()
                  ((assert= expected actual)
-                  (_assert 'eq? expected actual (quote actual)))))
+                  (_assert 'eq?
+                           expected
+                           actual
+                           (quote actual)))))
 
 (define-syntax assert-true
                (syntax-rules ()
