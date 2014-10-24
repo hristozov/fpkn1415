@@ -1,5 +1,5 @@
 (load "../../lib/scm/unit.scm")
-(load "02palindrome.scm")
+(load "01palindrome.scm")
 
 (define (count-palindromes start end)
   (define (helper current count)
