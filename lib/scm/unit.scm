@@ -13,6 +13,11 @@
 (define (_bool-stringify val)
   (if val "#t" "#f"))
 
+(define (_number-stringify val)
+  (if (exact? val)
+      (_number-stringify (exact->inexact val))
+      (number->string val)))
+
 (define (_list-stringify val)
   (if (eq? '() val)
       ""
@@ -25,7 +30,7 @@
 (define (_stringify val)
   (cond
     ((boolean? val) (_bool-stringify val))
-    ((number? val) (number->string val))
+    ((number? val) (_number-stringify val))
     ((symbol? val) (symbol->string val))
     ((eq? '() val) "")
     ((_is-approx-comparator val) "<approx>")
