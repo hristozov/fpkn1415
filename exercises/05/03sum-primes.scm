@@ -1,5 +1,5 @@
 (load "../../lib/scm/unit.scm")
-(load "01accumulate-filter.scm")
+(load "02accumulate-filter.scm")
 (load "../04/04accumulate.scm")
 
 (define (prime? n)

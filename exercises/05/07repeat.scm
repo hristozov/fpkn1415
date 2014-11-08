@@ -1,5 +1,5 @@
 (load "../../lib/scm/unit.scm")
-(load "05composition.scm")
+(load "04composition.scm")
 
 (define (repeat-n-recur f n)
   (if (= n 0)
