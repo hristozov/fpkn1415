@@ -9,6 +9,9 @@
                 (+ result 1))))
   (helper n 0))
 
+; Това е реализация на добре познатия ни алгоритъм за reverse.
+; - term отделя x-тата цифра от х на всяка стъпка.
+; - acc добавя нова цифра на края на резултата.
 (define (my-reverse-accumulate n)
   (let ((len-n (count-digits-iter n)))
     (define (term x)
