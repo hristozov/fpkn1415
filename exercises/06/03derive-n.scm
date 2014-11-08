@@ -1,5 +1,5 @@
 (load "../../lib/scm/unit.scm")
-(load "05derive.scm")
+(load "../05/04derive.scm")
 (load "07repeat.scm")
 
 (define (derive-n f n)
