@@ -78,8 +78,16 @@
 
 (define-syntax assert-eq
                (syntax-rules ()
-                 ((assert= expected actual)
+                 ((assert-eq expected actual)
                   (_assert 'eq?
+                           expected
+                           actual
+                           (quote actual)))))
+
+(define-syntax assert-equal
+               (syntax-rules ()
+                 ((assert-equal expected actual)
+                  (_assert 'equal?
                            expected
                            actual
                            (quote actual)))))
