@@ -2,4 +2,4 @@
 ==========================
 
 * По-сложни итеративни процеси върху числа.
-* Итеративен процес за приближено изчисление на квадратен корен (по [метода на Херон](http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method)).
+* Итеративен процес за приближено изчисление на квадратен корен ([`sqrt`](04sqrt.scm), по [метода на Херон](http://en.wikipedia.org/wiki/Methods_of_computing_square_roots#Babylonian_method)).
