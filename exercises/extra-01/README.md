@@ -7,12 +7,16 @@
 
 Задача 2
 --------
-* Операции с цифрите в дадено число. Конструиране на число, съставено от цифрите на четни позиции в дадено число. ([`make-number`](04.scm))
+* Операции с цифрите в дадено число. Конструиране на число, съставено от цифрите на четни позиции в дадено число. ([`make-number`](02make-number.scm))
 
 Задача 3
 --------
-![03.scm](https://rawgit.com/hristozov/fpkn1415/master/img/extra-1-3.png "Задача 3")
+![](https://rawgit.com/hristozov/fpkn1415/master/img/extra-1-3.png "Задача 3")
+
+([РЕШЕНИЕ](03.scm))
 
 Задача 4
 --------
-![04.scm](https://rawgit.com/hristozov/fpkn1415/master/img/extra-1-4.png "Задача 4")
+![](https://rawgit.com/hristozov/fpkn1415/master/img/extra-1-4.png "Задача 4")
+
+([РЕШЕНИЕ](04.scm))
