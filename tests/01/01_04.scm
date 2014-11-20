@@ -27,13 +27,13 @@
                   ((repeat-n f k)
                    (accumulate (lambda (p)
                                  ((derive-n g p) x))
-                               + 0 1 plus1 n)))
-                + 0 1 plus1 m)))
+                               + 0 1 plus1 m)))
+                * 1 1 plus1 n)))
 
-(assert-approx 265
-               0.5
-               ((solution 2
-                          3
+(assert-approx 17554
+               35
+               ((solution 3
+                          2
                           (lambda (x) (+ x 3))
                           (lambda (y) (expt y 4)))
                 2))

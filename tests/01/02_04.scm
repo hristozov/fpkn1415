@@ -28,10 +28,10 @@
                    (accumulate (lambda (p)
                                  ((derive-n g p) x))
                                + 0 1 plus1 n)))
-                * 1 1 plus1 m)))
+                + 0 1 plus1 m)))
 
-(assert-approx 17554
-               35
+(assert-approx 265
+               0.5
                ((solution 2
                           3
                           (lambda (x) (+ x 3))
