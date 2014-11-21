@@ -1,12 +1,15 @@
 (load "../../lib/scm/unit.scm")
 
 (define (member-deep? x l)
-  (cond
-    ((null? l) #f)
-    ((list? (car l)) (or (member-deep? x (car l))
-                         (member-deep? x (cdr l))))
-    ((= (car l) x) #t)
-    (else (member-deep? x (cdr l)))))
+  (if (null? l)
+      #f
+      (let ((l-head (car l))
+            (l-tail (cdr l)))
+        (cond
+          ((list? l-head) (or (member-deep? x l-head)
+                              (member-deep? x l-tail)))
+          ((= l-head x) #t)
+          (else (member-deep? x l-tail))))))
 
 (assert-true (member-deep? 1 '(1 2 3)))
 (assert-true (member-deep? 1 '((1) 2 3)))
