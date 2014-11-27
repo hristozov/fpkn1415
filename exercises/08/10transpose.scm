@@ -1,7 +1,7 @@
 (load "../../lib/scm/unit.scm")
 (load "../06/06nth.scm")
 
-(define (get-nth-row m n)
+(define (get-nth-column m n)
   (map (lambda (row) 
          (nth row n)) 
        m))
@@ -10,7 +10,7 @@
   (define (helper i)
     (if (= i (length m))
         '()
-        (cons (get-nth-row m i)
+        (cons (get-nth-column m i)
               (helper (+ i 1)))))
   (helper 0))
 
