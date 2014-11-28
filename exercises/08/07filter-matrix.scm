@@ -7,4 +7,4 @@
          (filter p row))
        m))
 
-(assert-equal '((1 2 3) (4 5 6) (7 8 9)) (filter-matrix even? '((1 2 3) (4 5 6) (7 8 9))))
+(assert-equal '((2) (4 6) (8)) (filter-matrix even? '((1 2 3) (4 5 6) (7 8 9))))
