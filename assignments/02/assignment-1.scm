@@ -1,7 +1,11 @@
 (load "../../lib/scm/unit.scm")
 
 (define (depth l)
-  0)
+  (cond
+    ((null? l) 1)
+    ((list? (car l)) (max (+ 1 (depth (car l)))
+                          (depth (cdr l))))
+    (else (depth (cdr l)))))
 
 (assert= 1 (depth '()))
 (assert= 1 (depth '(1 2 3)))
