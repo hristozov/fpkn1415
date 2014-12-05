@@ -4,8 +4,9 @@
 (define (list-ways-leaves tree)
   (define (helper current-tree current-way)
     (cond
-      ((leaf? current-tree) (list (cons (value current-tree)
-                                        current-way)))
+      ((leaf? current-tree) (list 
+                              (cons (value current-tree)
+                                    current-way)))
       ((tree-empty? current-tree) '())
       (else (append (helper (left current-tree)
                             (cons (value current-tree)
