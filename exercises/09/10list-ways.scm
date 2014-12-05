@@ -8,20 +8,26 @@
                                         current-way)))
       ((tree-empty? current-tree) '())
       (else (append (helper (left current-tree)
-                            (cons (value current-tree) current-way))
+                            (cons (value current-tree)
+                                  current-way))
                     (helper (right current-tree)
-                            (cons (value current-tree) current-way))))))
+                            (cons (value current-tree)
+                                  current-way))))))
   (helper tree '()))
 
 (define (list-ways-root tree)
   (define (helper current-tree current-way)
     (cond
-      ((leaf? current-tree) (list (append current-way (list (value current-tree)))))
+      ((leaf? current-tree) (list 
+                              (append current-way
+                                      (list (value current-tree)))))
       ((tree-empty? current-tree) '())
       (else (append (helper (left current-tree)
-                            (append current-way (list (value current-tree))))
+                            (append current-way
+                                    (list (value current-tree))))
                     (helper (right current-tree)
-                            (append current-way (list (value current-tree))))))))
+                            (append current-way
+                                    (list (value current-tree))))))))
   (helper tree '()))
 
 (define sample-tree
