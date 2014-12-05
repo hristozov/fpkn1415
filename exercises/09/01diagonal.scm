@@ -5,7 +5,8 @@
   (define (helper i)
     (if (>= i (length m))
         '()
-        (cons (nth (nth m i) i)
+        (cons (nth (nth m i)
+                   i)
               (helper (+ i 1)))))
   (helper 0))
 
@@ -19,7 +20,8 @@
   (define (helper i)
     (if (>= i (length m))
         '()
-        (cons (nth (nth m i) (- (length m) i 1))
+        (cons (nth (nth m i)
+                   (- (length m) i 1))
               (helper (+ i 1)))))
   (helper 0))
 
@@ -31,7 +33,8 @@
 (define (strip-last l)
   (if (null? (cdr l))
       '()
-      (cons (car l) (strip-last (cdr l)))))
+      (cons (car l)
+            (strip-last (cdr l)))))
 
 (define (second-diagonal2 m)
   (if (null? m)
