@@ -14,6 +14,11 @@
 (define (tree-empty? tree)
   (null? tree))
 
+(define (leaf? tree)
+  (and (not (tree-empty? tree))
+       (tree-empty? (left tree))
+       (tree-empty? (right tree))))
+
 (assert-equal 
   '(1
     (3
@@ -45,3 +50,6 @@
 (assert-equal 1 (value (make-tree 1 (empty-tree) (empty-tree))))
 (assert-equal (empty-tree) (left (make-tree 1 (empty-tree) (empty-tree))))
 (assert-equal (empty-tree) (right (make-tree 1 (empty-tree) (empty-tree))))
+(assert-false (leaf? (make-tree 1 (make-tree 3 (empty-tree) (empty-tree)) (empty-tree))))
+(assert-false (leaf? (empty-tree)))
+(assert-true (leaf? (make-tree 1 (empty-tree) (empty-tree))))
