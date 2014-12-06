@@ -1,33 +1,33 @@
 (load "../../lib/scm/unit.scm")
 (load "05tree.scm")
 
-(define (list-ways-leaves tree)
-  (define (helper current-tree current-way)
+(define (list-paths-leaves tree)
+  (define (helper current-tree current-path)
     (cond
       ((leaf? current-tree) (list 
                               (cons (value current-tree)
-                                    current-way)))
+                                    current-path)))
       ((tree-empty? current-tree) '())
       (else (append (helper (left current-tree)
                             (cons (value current-tree)
-                                  current-way))
+                                  current-path))
                     (helper (right current-tree)
                             (cons (value current-tree)
-                                  current-way))))))
+                                  current-path))))))
   (helper tree '()))
 
-(define (list-ways-root tree)
-  (define (helper current-tree current-way)
+(define (list-paths-root tree)
+  (define (helper current-tree current-path)
     (cond
       ((leaf? current-tree) (list 
-                              (append current-way
+                              (append current-path
                                       (list (value current-tree)))))
       ((tree-empty? current-tree) '())
       (else (append (helper (left current-tree)
-                            (append current-way
+                            (append current-path
                                     (list (value current-tree))))
                     (helper (right current-tree)
-                            (append current-way
+                            (append current-path
                                     (list (value current-tree))))))))
   (helper tree '()))
 
@@ -47,7 +47,7 @@
                                    (make-tree 1 (empty-tree) (empty-tree))))))
 
 (assert-equal '((5 3 1) (8 6 3 1) (2 7 9 1) (1 7 9 1))
-              (list-ways-leaves sample-tree))
+              (list-paths-leaves sample-tree))
 
 (assert-equal '((1 3 5) (1 3 6 8) (1 9 7 2) (1 9 7 1))
-              (list-ways-root sample-tree))
+              (list-paths-root sample-tree))

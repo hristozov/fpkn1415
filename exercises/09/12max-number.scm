@@ -1,5 +1,5 @@
 (load "../../lib/scm/unit.scm")
-(load "10list-ways.scm")
+(load "10list-paths.scm")
 
 (define (list2number l)
   (define (helper current-l result)
@@ -11,11 +11,11 @@
 
 (define (max-number-root tree)
   (apply max
-         (map list2number (list-ways-root tree))))
+         (map list2number (list-paths-root tree))))
 
 (define (max-number-leaves tree)
   (apply max
-         (map list2number (list-ways-leaves tree))))
+         (map list2number (list-paths-leaves tree))))
 
 (define sample-tree
   (make-tree 1 

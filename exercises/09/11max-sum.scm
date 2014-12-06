@@ -1,9 +1,9 @@
 (load "../../lib/scm/unit.scm")
-(load "10list-ways.scm")
+(load "10list-paths.scm")
 
 (define (max-number tree)
   (apply max
-         (map (lambda (x) (apply + x)) (list-ways-root tree))))
+         (map (lambda (x) (apply + x)) (list-paths-root tree))))
 
 (define sample-tree
   (make-tree 1 
