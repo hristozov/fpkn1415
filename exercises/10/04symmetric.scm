@@ -1,7 +1,7 @@
 (load "../../lib/scm/unit.scm")
 (load "03edges.scm")
 
-(define (oriented? g)
+(define (symmetric? g)
   (let ((g-edges (edges g)))
     (= (length g-edges)
        (length (filter (lambda (edge)
@@ -16,8 +16,8 @@
 (add-edge! 3 1 g1)
 (add-edge! 2 1 g1)
 
-(assert-true (oriented? g1))
+(assert-true (symmetric? g1))
 (add-edge! 3 4 g1)
-(assert-false (oriented? g1))
+(assert-false (symmetric? g1))
 (add-edge! 4 3 g1)
-(assert-true (oriented? g1))
+(assert-true (symmetric? g1))

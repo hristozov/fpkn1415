@@ -5,10 +5,11 @@
   (length (neighbours v g)))
 
 (define (degree-in v g)
-  (length (filter (lambda (vertex)
-                    (member v
-                            (neighbours vertex g)))
-                  (vertices g))))
+  (length (filter 
+            (lambda (vertex)
+              (member v
+                      (neighbours vertex g)))
+            (vertices g))))
 
 (define (degree v g)
   (+ (degree-out v g)

@@ -8,7 +8,8 @@
                   (list vertex neighbour))
                 (neighbours vertex g)))
          (filter (lambda (vertex)
-                   (> (length (neighbours vertex g)) 0))
+                   (> (length (neighbours vertex g))
+                      0))
                  (vertices g)))))
 
 (define g1 (create-graph '(5 7)))

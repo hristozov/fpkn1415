@@ -15,7 +15,7 @@
   (insert! v '() g))
 
 (define (add-edge! a b g)
-  (let ((start-vertex (assq a g)))
+  (let ((start-vertex (assoc a g)))
     (set-cdr! start-vertex
               (list (cons b (cadr start-vertex))))))
 
@@ -23,7 +23,7 @@
   (map car g))
 
 (define (neighbours v g)
-  (cadr (assq v g)))
+  (cadr (assoc v g)))
 
 (define g1 (create-graph '(5 7)))
 (add-vertex! 1 g1)
