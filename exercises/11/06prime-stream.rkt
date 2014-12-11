@@ -1,5 +1,6 @@
 #lang racket
-(require "04n-stream.rkt")
+(require "../../lib/rkt/unit.rkt")
+(require "05n-stream.rkt")
 
 (define (prime? n)
   (define (helper possible-divisor)
@@ -12,8 +13,8 @@
 (define (prime-stream)
   (stream-filter prime? (n-stream 2)))
 
-(stream-ref (prime-stream) 1)
-(stream-ref (prime-stream) 2)
-(stream-ref (prime-stream) 3)
-(stream-ref (prime-stream) 4)
-(stream-ref (prime-stream) 10)
+(assert= 3 (stream-ref (prime-stream) 1))
+(assert= 5 (stream-ref (prime-stream) 2))
+(assert= 7 (stream-ref (prime-stream) 3))
+(assert= 11 (stream-ref (prime-stream) 4))
+(assert= 31 (stream-ref (prime-stream) 10))

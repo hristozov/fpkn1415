@@ -1,4 +1,6 @@
 #lang racket
+(require "../../lib/rkt/unit.rkt")
+(require "03list-to-stream.rkt")
 
 (define (add-streams s1 s2)
   (if (or (stream-empty? s1)
@@ -9,5 +11,7 @@
                    (add-streams (stream-rest s1)
                                 (stream-rest s2)))))
 
-(stream->list (add-streams (stream-cons 1 (stream-cons 2 (stream-cons 3 empty-stream)))
-                           (stream-cons 7 (stream-cons 2 empty-stream))))
+(assert-equal '(6 9 4)
+              (stream->list (add-streams
+                              (list-to-stream '(1 2 3 7))
+                              (list-to-stream '(5 7 1)))))
