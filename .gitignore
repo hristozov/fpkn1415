@@ -2,3 +2,4 @@
 *.hi
 *.out
 *.tmp
+*.rkt~
