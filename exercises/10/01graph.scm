@@ -22,17 +22,6 @@
 (define (vertices g)
   (map car g))
 
-(define (edges g)
-  (apply 
-    append 
-    (map (lambda (vertex)
-           (append (map (lambda (neighbour)
-                          (list vertex neighbour))
-                        (neighbours vertex g))))
-         (filter (lambda (vertex)
-                   (> (length (neighbours vertex g)) 0))
-                 (vertices g)))))
-
 (define (neighbours v g)
   (cadr (assq v g)))
 
