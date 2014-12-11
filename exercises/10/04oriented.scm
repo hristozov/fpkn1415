@@ -1,5 +1,5 @@
 (load "../../lib/scm/unit.scm")
-(load "02edges.scm")
+(load "03edges.scm")
 
 (define (oriented? g)
   (let ((g-edges (edges g)))
