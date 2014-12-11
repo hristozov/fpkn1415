@@ -4,9 +4,9 @@
   (apply 
     append 
     (map (lambda (vertex)
-           (append (map (lambda (neighbour)
-                          (list vertex neighbour))
-                        (neighbours vertex g))))
+           (map (lambda (neighbour)
+                  (list vertex neighbour))
+                (neighbours vertex g)))
          (filter (lambda (vertex)
                    (> (length (neighbours vertex g)) 0))
                  (vertices g)))))
