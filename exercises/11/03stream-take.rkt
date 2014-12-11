@@ -1,7 +1,7 @@
 #lang racket
 (require "../../lib/rkt/unit.rkt")
-(require "02stream-to-list.rkt")
 (require "05n-stream.rkt")
+(provide stream-take)
 
 (define (stream-take stream n)
   (if (= n 0)

@@ -1,4 +1,6 @@
 #lang racket
+(require "../../lib/rkt/unit.rkt")
+(require "03stream-take.rkt")
 (require "08repeat-list.rkt")
 
 (define (repeat-lists l1 l2)
@@ -17,17 +19,6 @@
 (define (repeat-lists2 l1 l2)
   (repeat-list (append l1 l2)))
 
-(stream-ref (repeat-lists '(1 2 3) '(4 5 6)) 0)
-(stream-ref (repeat-lists2 '(1 2 3) '(4 5 6)) 0)
-(stream-ref (repeat-lists '(1 2 3) '(4 5 6)) 1)
-(stream-ref (repeat-lists2 '(1 2 3) '(4 5 6)) 1)
-(stream-ref (repeat-lists '(1 2 3) '(4 5 6)) 2)
-(stream-ref (repeat-lists2 '(1 2 3) '(4 5 6)) 2)
-(stream-ref (repeat-lists '(1 2 3) '(4 5 6)) 3)
-(stream-ref (repeat-lists2 '(1 2 3) '(4 5 6)) 3)
-(stream-ref (repeat-lists '(1 2 3) '(4 5 6)) 4)
-(stream-ref (repeat-lists2 '(1 2 3) '(4 5 6)) 4)
-(stream-ref (repeat-lists '(1 2 3) '(4 5 6)) 11)
-(stream-ref (repeat-lists2 '(1 2 3) '(4 5 6)) 11)
-(stream-ref (repeat-lists '(1 2 3) '(4 5 6)) 64)
-(stream-ref (repeat-lists2 '(1 2 3) '(4 5 6)) 64)
+(assert-equal '(1 2 3 4 1 2 3)
+              (stream->list (stream-take (repeat-lists '(1 2) '(3 4))
+                                         7)))

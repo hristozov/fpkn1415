@@ -1,4 +1,5 @@
 #lang racket
+(require "03stream-take.rkt")
 (require "../../lib/rkt/unit.rkt")
 (provide repeat-list)
 
@@ -15,3 +16,6 @@
 (assert= 3 (stream-ref (repeat-list '(1 2 3)) 2))
 (assert= 1 (stream-ref (repeat-list '(1 2 3)) 3))
 (assert= 2 (stream-ref (repeat-list '(1 2 3)) 4))
+(assert-equal '(1 2 3 1 2)
+              (stream->list (stream-take (repeat-list '(1 2 3))
+                                         5)))
