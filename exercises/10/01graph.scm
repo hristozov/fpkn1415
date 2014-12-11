@@ -37,7 +37,6 @@
 (add-edge! 1 4 g1)
 (add-edge! 5 2 g1)
 (assert-equal '((5 (2)) (4 ()) (2 ()) (1 (4 2)) (7 ())) g1)
-(assert-equal '((5 2) (1 4) (1 2)) (edges g1))
 
 (define g2 '((4 (1 2)) (5 (1 2 3))))
 (assert-equal '(1 2 3) (neighbours 5 g2))

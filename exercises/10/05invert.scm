@@ -1,5 +1,5 @@
 (load "../../lib/scm/unit.scm")
-(load "01graph.scm")
+(load "02edges.scm")
 
 (define (invert g)
   (let ((result (create-graph (vertices g))))

@@ -1,5 +1,5 @@
 (load "../../lib/scm/unit.scm")
-(load "02edges.scm")
+(load "01graph.scm")
 
 (define (degree-out v g)
   (length (neighbours v g)))
