@@ -1,7 +1,7 @@
 #lang racket
 (require "../../lib/rkt/unit.rkt")
-(require "03stream-take.rkt")
-(require "08repeat-list.rkt")
+(require "04stream-take.rkt")
+(require "09repeat-list.rkt")
 
 (define (repeat-lists l1 l2)
   (define (helper1 current-list)
