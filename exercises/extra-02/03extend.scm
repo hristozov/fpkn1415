@@ -1,5 +1,5 @@
 (load "../../lib/scm/unit.scm")
-(load "01graph.scm")
+(load "../10/01graph.scm")
 
 (define (last-element l)
   (car (reverse l)))

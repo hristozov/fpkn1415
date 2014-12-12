@@ -1,5 +1,5 @@
 (load "../../lib/scm/unit.scm")
-(load "06extend.scm")
+(load "03extend.scm")
 
 (define (acyclic-from v g)
   (define result (list (list v)))

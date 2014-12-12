@@ -1,5 +1,20 @@
 (load "../../lib/scm/unit.scm")
-(load "../09/10list-paths.scm")
+(load "../09/05tree.scm")
+
+(define (list-paths-root tree)
+  (define (helper current-tree current-path)
+    (cond
+      ((leaf? current-tree) (list 
+                              (append current-path
+                                      (list (value current-tree)))))
+      ((tree-empty? current-tree) '())
+      (else (append (helper (left current-tree)
+                            (append current-path
+                                    (list (value current-tree))))
+                    (helper (right current-tree)
+                            (append current-path
+                                    (list (value current-tree))))))))
+  (helper tree '()))
 
 (define (max-number tree)
   (apply max
