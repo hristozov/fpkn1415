@@ -1,7 +1,7 @@
 (load "../../lib/scm/unit.scm")
 (load "03extend.scm")
 
-(define (acyclic-from v g)
+(define (paths-from v g)
   (define result (list (list v)))
   (define (helper current-path)
     (let ((current-vertex (last-element current-path)))

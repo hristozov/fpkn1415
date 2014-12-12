@@ -16,9 +16,10 @@
                                     (list (value current-tree))))))))
   (helper tree '()))
 
-(define (max-number tree)
+(define (max-sum tree)
   (apply max
-         (map (lambda (x) (apply + x)) (list-paths-root tree))))
+         (map (lambda (path) (apply + path))
+              (list-paths-root tree))))
 
 (define sample-tree
   (make-tree 1 
