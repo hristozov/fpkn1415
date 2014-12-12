@@ -3,3 +3,4 @@
 *.out
 *.tmp
 *.rkt~
+compiled/
