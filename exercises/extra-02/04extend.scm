@@ -4,6 +4,8 @@
 (define (last-element l)
   (car (reverse l)))
 
+; Интересува ни последният връх в пътя - вземаме го с last-element. Следващата
+; стъпка е да обходим съседите му и да „залепим“ всеки от тях в края на пътя.
 (define (extend p g)
   (let* ((last-vertex (last-element p))
          (neighbours-of-last (neighbours last-vertex g)))
@@ -11,6 +13,9 @@
            (append p (list neighbour)))         
          neighbours-of-last)))
 
+; Ако искаме да получаваме само ацикличен път като резултат, трябва да направим
+; абсолютно същото като единствената разлика е филтрирането на съседите -
+; интересуват ни само тези, които още не са били посетени.
 (define (extend-acyclic p g)
   (let* ((last-vertex (last-element p))
          (neighbours-of-last (neighbours last-vertex g)))
