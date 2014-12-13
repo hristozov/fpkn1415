@@ -1,6 +1,7 @@
 (load "../../lib/scm/unit.scm")
 (load "../06/06nth.scm")
 
+; skip от предишната задача.
 (define (skip m r)
   (define (helper i)
     (cond
@@ -10,6 +11,9 @@
                   (helper (+ i 1))))))
   (helper 0))
 
+; Тук решението е подобно - махаме редове с helper-а, подобно на skip. Разликата
+; е, че при добавянето на редовете викаме skip върху самите тях, за да махнем
+; съответните елементи от c-тата колона.
 (define (skip-row-column m r c)
   (define (helper i)
     (cond

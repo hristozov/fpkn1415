@@ -1,11 +1,14 @@
 (load "../../lib/scm/unit.scm")
 (load "../06/06nth.scm")
 
+; Връща n-тата колона в матрицата m.
 (define (get-nth-column m n)
   (map (lambda (row) 
          (nth row n)) 
        m))
 
+; Идеята е на всяка стъпка да вземем i-тата колона на матрицата m и да я добавим
+; като i-ти ред в резултата.
 (define (transpose m)
   (define (helper i)
     (if (= i (length m))
