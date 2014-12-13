@@ -32,6 +32,7 @@
                                   current-path))))))
   (helper tree '()))
 
+; Превръща списък от цифри в число. Може да се направи и с accumulate.
 (define (list2number l)
   (define (helper current-l result)
     (if (null? current-l)
@@ -40,10 +41,13 @@
                 (+ (* 10 result) (car current-l)))))
   (helper l 0))
 
+; Решение при четене на числата от корена към листата. Идеята е подобна на тази
+; от max-sum.
 (define (max-number-root tree)
   (apply max
          (map list2number (list-paths-root tree))))
 
+; Решение при четене от листата към корена.
 (define (max-number-leaves tree)
   (apply max
          (map list2number (list-paths-leaves tree))))

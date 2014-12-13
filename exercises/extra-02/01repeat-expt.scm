@@ -1,8 +1,10 @@
 (load "../../lib/scm/unit.scm")
 
+; Вдига числата в списъка l на степен n.
 (define (expt-list l n)
   (map (lambda (x) (expt x n)) l))
 
+; Итерираме числата от 1 до n.
 (define (repeat-expt l n)
   (define (helper current-n)
     (if (> current-n n)
