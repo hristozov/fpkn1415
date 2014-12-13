@@ -1,6 +1,7 @@
 #lang racket
 (require "../../lib/rkt/unit.rkt")
 
+; Ползваме helper с текущото и предишното число на Фибоначи.
 (define (fibonacci)
   (define (helper a b)
     (stream-cons a

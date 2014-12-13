@@ -2,6 +2,7 @@
 (require "../../lib/rkt/unit.rkt")
 (require "03list-to-stream.rkt")
 
+; Резултатът ще е дълъг колкото по-късия от двата потока.
 (define (add-streams s1 s2)
   (if (or (stream-empty? s1)
           (stream-empty? s2))

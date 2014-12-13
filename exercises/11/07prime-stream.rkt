@@ -10,6 +10,9 @@
       (else (helper (- possible-divisor 1)))))
   (helper (- n 1)))
 
+; stream-filter е „мързелив“ и няма да се опита да обходи и филтрира безкрайния
+; поток. Оценяването на това дали елементите са прости числа се случва при
+; поискването им.
 (define (prime-stream)
   (stream-filter prime? (n-stream 2)))
 

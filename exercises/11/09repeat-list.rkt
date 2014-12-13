@@ -4,6 +4,8 @@
 (require "../../lib/rkt/unit.rkt")
 (provide repeat-list)
 
+; Чрез helper обикаляме всеки път списъка l. Когато стигнем до края на списъка,
+; helper се вика сам отново, с оригиналния списък. Така процесът започва отново.
 (define (repeat-list l)
   (define (helper current-list)
     (if (null? current-list)
