@@ -1,9 +1,12 @@
 (load "../../lib/scm/unit.scm")
 (load "01graph.scm")
 
+; Полу-степен на изхода. Интересува ни само колко съседи има върхът.
 (define (degree-out v g)
   (length (neighbours v g)))
 
+; За полу-степен на входа трябва да намерим всички върхове, които имат дадения
+; връх за съсед. След това връщаме дължината им.
 (define (degree-in v g)
   (length (filter 
             (lambda (vertex)

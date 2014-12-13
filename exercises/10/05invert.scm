@@ -1,6 +1,8 @@
 (load "../../lib/scm/unit.scm")
 (load "03edges.scm")
 
+; Създаваме празен граф със същите върхове като графа g. След това, обхождаме
+; ребрата на g и за всяко ребро (a b) добавяме реброто (b a) в резултата.
 (define (invert g)
   (let ((result (create-graph (vertices g))))
     (map
