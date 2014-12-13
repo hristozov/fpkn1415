@@ -12,6 +12,10 @@
                      (helper (cdr current-list)))))
   (helper l))
 
+; Долното няма да работи. stream-append не е специална форма (т.е. прилага се
+; апликативният модел) и при извикването му ще се оцени (repeat-list2 l). Това
+; ще доведе до безкрайна рекурсия. По тази причина, трябва да ползваме само
+; stream-cons.
 ;(define (repeat-list2 l)
 ;  (stream-append
 ;    (list-to-stream l)

@@ -3,6 +3,9 @@
 (require "04stream-take.rkt")
 (require "09repeat-list.rkt")
 
+; Първи вариант - две взаимно рекурсивни процедури, които правят същото като
+; процедурата от repeat-list. Когато списъците се изчерпат, процедурите се
+; викат взаимно.
 (define (repeat-lists l1 l2)
   (define (helper1 current-list)
     (if (null? current-list)
@@ -16,6 +19,7 @@
                      (helper2 (cdr current-list)))))
   (helper1 l1))
 
+; По-прост вариант на решението, без взаимно рекурсивни процедури.
 (define (repeat-lists2 l1 l2)
   (repeat-list (append l1 l2)))
 
