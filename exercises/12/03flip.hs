@@ -1,14 +1,14 @@
-import           Unit
+import Unit
 
-flip' :: (a -> b -> c) -> (b -> a -> c)
-flip' f = \x y -> f y x
+flip' :: (a -> b -> c) -> b -> a -> c
+{-- flip' f = \x y -> f y x --}
+flip' f x y = f y x
 
-main = do {
+main =
   let 
-    gte = (flip' (<))
-    lt = (flip' gte)
+    gte = flip' (<)
+    lt = flip' gte
   in do {
     assertFalse (gte 1 3);
-    assertTrue (lt 1 3);
+    assertTrue (lt 1 3)
   }
-}
