@@ -16,6 +16,7 @@ for file in *.hs; do
 
 	rm $output
 	rm a.out
+  rm *.hi
 done
 
 printSummary
