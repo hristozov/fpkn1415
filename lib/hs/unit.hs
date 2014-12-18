@@ -9,9 +9,9 @@ assertEqual expected actual =
 	assert (expected == actual) $ show expected ++ " == " ++ show actual
 
 assertTrue :: Bool -> IO ()
-assertTrue actual =
-	assertEqual True actual
+assertTrue =
+	assertEqual True
 
 assertFalse :: Bool -> IO ()
-assertFalse actual =
-	assertEqual False actual
+assertFalse =
+	assertEqual False
