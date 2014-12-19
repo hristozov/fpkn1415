@@ -1,9 +1,11 @@
 import Unit
 
+-- първи вариант - с if
 countDigits n = if n < 10
   then 1
   else 1 + countDigits (div n 10)
 
+-- втори вариант - с guard
 countDigits2 n
   | n < 10 = 1
   | otherwise = 1 + countDigits2 (div n 10)
