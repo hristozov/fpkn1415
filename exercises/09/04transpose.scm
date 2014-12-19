@@ -17,6 +17,7 @@
               (helper (+ i 1)))))
   (helper 0))
 
+; Вариант за любознателни :-) Ползва алтернативни форми на map и apply.
 (define (transpose2 m)
   (apply map list m))
 
