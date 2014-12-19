@@ -24,4 +24,4 @@ Racket дистрибуция може да бъде свалена от [офи
 
 Ако ползвате DrRacket, не забравяйте първо да сложите R5RS за език, тъй като той не е зададен по подразбиране. Това става от менюто Language -> Choose Language -> Other Languages -> R5RS.
 
-За да пишете на Haskell, можете да си свалите [WinHugs](https://www.haskell.org/haskellwiki/WinHugs) и с него да зареждате `.hs` файловете. Друг вариант е да използвате [ghc](https://www.haskell.org/ghc/). За редактиране на Haskell код може да ви бъде удобен [Sublime Text](http://www.sublimetext.com/), който може да бъде надграден със [SublimeHaskell](https://github.com/SublimeHaskell/SublimeHaskell).
+За да пишете на Haskell, можете да си свалите [WinHugs](https://www.haskell.org/haskellwiki/WinHugs) и с него да зареждате `.hs` файловете. Друг вариант е да използвате [ghc](https://www.haskell.org/ghc/) пакета, съдържащ компилатор и интерактивна среда. За редактиране на Haskell код може да ви бъде удобен [Sublime Text](http://www.sublimetext.com/), който може да бъде надграден със [SublimeHaskell](https://github.com/SublimeHaskell/SublimeHaskell).
