@@ -1,6 +1,5 @@
 import Unit
 
-fpow :: Double -> Integer -> Double
 fpow x 0 = 1
 fpow x n = if even n
   then fpow x (n `div` 2) ** 2
