@@ -4,7 +4,7 @@ import Unit
 helper i result
     | i <= 0 = result
     | otherwise = helper (i `div` 10) (10 * result + i `mod` 10)
-reverseDigits n = helper n 0 where
+reverseDigits n = helper n 0
 
 -- втори вариант - вложена дефиниция с where
 reverseDigits2 n = helper n 0 where
