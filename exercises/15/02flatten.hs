@@ -1,5 +1,6 @@
 import Unit
 
+flatten :: [[a]] -> [a]
 flatten l = foldl (++) [] l
 
 main = do {

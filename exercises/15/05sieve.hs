@@ -1,5 +1,6 @@
 import Unit
 
+sieve :: (Integral a, Enum a) => [a]
 sieve = helper [2..] where
   helper (x:xs) = x : helper (filter (\el -> el `mod` x > 0) xs)
 
