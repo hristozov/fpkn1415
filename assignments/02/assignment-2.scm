@@ -1,7 +1,13 @@
 (load "../../lib/scm/unit.scm")
 
 (define (max-sublist-length l)
-  0)
+  (cond
+    ((null? l) 0)
+    ((list? (car l)) (max (length l)
+                          (max-sublist-length (car l))
+                          (max-sublist-length (cdr l))))
+    (else (max (length l)
+               (max-sublist-length (cdr l))))))
 
 (assert= 0 (max-sublist-length '()))
 (assert= 1 (max-sublist-length '(1)))
