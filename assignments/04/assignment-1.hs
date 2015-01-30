@@ -1,8 +1,12 @@
 import Unit
 
-mergeTwo x y = []
+mergeTwo [] y = reverse y
+mergeTwo x [] = reverse x
+mergeTwo x y
+  | last x > last y = last x : mergeTwo (init x) y
+  | otherwise = last y : mergeTwo x (init y)
 
-merge l = []
+merge = foldl (\acc current -> mergeTwo (reverse acc) current) []
 
 main = do {
   assertEqual [3, 2, 1] (mergeTwo [1, 2, 3] []);
