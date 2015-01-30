@@ -1,8 +1,17 @@
 #lang racket
 (require "../../lib/rkt/unit.rkt")
 
+(define (get-stream n)
+  (define (helper current)
+    (stream-cons (* n current)
+                 (helper (+ current 1))))
+  (helper 1))
+
 (define (hw31)
-  empty-stream)
+  (define (helper current)
+    (stream-cons (get-stream current)
+                 (helper (+ current 1))))
+  (helper 1))
 
 (let ((first-stream (stream-ref (hw31) 0)))
   (assert= 1 (stream-ref first-stream 0))
