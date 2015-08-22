@@ -8,14 +8,17 @@
 (define (palindrome? n)
   (define (helper i reverse-i)
     (cond
-      ((or (= 0 (remainder i 10)) (< i reverse-i)) #f)
+      ((< i reverse-i) #f)
       ((or (= i reverse-i) (= (quotient i 10) reverse-i)) #t)
       (else (helper (quotient i 10)
                     (+ (* reverse-i 10) (remainder i 10))))))
-  (helper n 0))
+  (if (= 0 (remainder n 10))
+      #f
+      (helper n 0)))
 
 (assert-true (palindrome? 1))
 (assert-false (palindrome? 10))
+(assert-true (palindrome? 101))
 (assert-true (palindrome? 121))
 (assert-false (palindrome? 122))
 (assert-false (palindrome? 221))
